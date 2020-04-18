@@ -1,0 +1,9 @@
+def harminckilenc(n):
+    osszeg = 0
+    i = 1
+    for i in range(n):
+        x = [int(i) for i in str(n)]
+
+n = int(input("Bemenet: "))
+eredmeny = harminckilenc(n)
+print(eredmeny)
