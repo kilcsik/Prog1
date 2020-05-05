@@ -1,9 +1,32 @@
-szam = int(input("Bemenet: "))
-eredmeny = 0
+szam = input("Adj meg egy számot! ")
 osszeg = 0
-for i in range(len(str(szam))):
-    a = szam % 10
-    eredmeny += a
-    szam = szam//10
+for i in szam:
+    osszeg += int(i)
+print("Összeg1 =", int(i), "+", int(i), "=", osszeg)
 
-print('Osszeg =', eredmeny)
+osszeg2 = 0
+while osszeg > 10:
+    for i in str(osszeg):
+        osszeg2 += int(i)
+    print("Összeg{} = {}".format(2, osszeg2))
+    break
+
+
+def Prim(i):
+    if i < 2:
+        return False
+    for j in range(2, i):
+        if i % j == 0:
+            return False
+    return True
+
+def Paratlan(i):
+    if i % 2 == 0:
+        return False
+    else:
+        return True
+
+Primosszeg = 0
+if Prim(i) == True and Paratlan(i) == True:
+    Primosszeg += i
+    print("PrimOsszeg =", Primosszeg)
