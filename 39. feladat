@@ -1,32 +1,56 @@
 szam = input("Adj meg egy számot! ")
 osszeg = 0
+a = str()
+lefutas = 0
 for i in szam:
     osszeg += int(i)
-print("Összeg1 =", int(i), "+", int(i), "=", osszeg)
+    a += str(i) + " + "
+a = a[0:-2] + "= " + str(osszeg)
+lefutas += 1
+print("Összeg{}: {}".format(lefutas, a))
 
 osszeg2 = 0
+b = ""
 while osszeg > 10:
     for i in str(osszeg):
         osszeg2 += int(i)
-    print("Összeg{} = {}".format(2, osszeg2))
+        b += str(i) + ' + '
+    b = b[0:-2] + "= " + str(osszeg2)
+    lefutas += 1
+    print("Összeg{}: {}".format(lefutas, b))
+    break
+
+osszeg3 = 0
+c = ""
+while osszeg2 > 10:
+    for i in str(osszeg2):
+        osszeg3 += int(i)
+        c += str(i) + ' + '
+    c = c[0:-2] + "= " + str(osszeg3)
+    lefutas += 1
+    print("Összeg{}: {}".format(lefutas, c))
     break
 
 
-def Prim(i):
-    if i < 2:
-        return False
-    for j in range(2, i):
-        if i % j == 0:
-            return False
-    return True
-
-def Paratlan(i):
-    if i % 2 == 0:
-        return False
-    else:
-        return True
-
-Primosszeg = 0
-if Prim(i) == True and Paratlan(i) == True:
-    Primosszeg += i
-    print("PrimOsszeg =", Primosszeg)
+# def Prim():
+#     if int(i) < 2:
+#         return False
+#     for j in range(2, int(i)):
+#         if int(i) % j == 0:
+#             return False
+#     return True
+# 
+# 
+# def Paratlan():
+#     if int(i) % 2 == 0:
+#         return False
+#     else:
+#         return True
+# 
+# p = str()
+# Primosszeg = 0
+# if Prim() == True and Paratlan() == True:
+#     Primosszeg += int(i)
+#     p += str(i) + ' + '
+# p = p[0:-2] + "= " + str(Primosszeg)
+# print("PrimOsszeg =", p)
