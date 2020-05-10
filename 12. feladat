@@ -1,1 +1,14 @@
+szamok = [2, 6, 4, 6, 5, 4, 5, 4, 8, 8]
+eredmeny1 = []
+eredmeny2 = []
 
+db = 0
+for i in range(len(szamok), 2):
+    if szamok[i] % 2 == 0 and szamok[i + 1] % 2 == 1:
+        eredmeny1.append(szamok[i])
+        db += 2
+    elif szamok[i] % 2 == 1 and szamok[i + 1] % 2 == 0:
+        eredmeny2.append(szamok[i])
+        db += 2
+print(eredmeny1, db)
+print(eredmeny2, db)
