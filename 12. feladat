@@ -1,16 +1,20 @@
 szam = input("A sorozat: ")
 eredmeny = []
 
-kezdoindex = 1
-while len(szam) - kezdoindex >= 1:
-    sorozat = szam[kezdoindex - 1]
-    for i in range(kezdoindex, len(szam)):
-        if int(szam[i]) % 2 == 0 and int(szam[i-1]) % 2 != 0:
-            sorozat += str(szam[i])
-        elif int(szam[i]) % 2 != 0 and int(szam[i-1]) % 2 == 0:
-            sorozat += str(szam[i])
-        else:
-            break
+if len(szam) == 1:
+    print("A leghosszabb sorozat: {}, hossza: 1".format(szam))
+
+else:
+    kezdoindex = 1
+    while len(szam) - kezdoindex >= 1:
+        sorozat = szam[kezdoindex - 1]
+        for i in range(kezdoindex, len(szam)):
+            if int(szam[i]) % 2 == 0 and int(szam[i-1]) % 2 != 0:
+                sorozat += str(szam[i])
+            elif int(szam[i]) % 2 != 0 and int(szam[i-1]) % 2 == 0:
+                sorozat += str(szam[i])
+            else:
+                break
         eredmeny.append(sorozat)
         kezdoindex += 1
 
@@ -22,4 +26,9 @@ while len(szam) - kezdoindex >= 1:
         if len(eredmeny[i]) > maxhossz:
             maxhossz = len(eredmeny[i])
             maxindex = i
-    print("A leghosszabb sorozat: {}, hossza: {}".format(eredmeny[maxindex], maxhossz))
+
+    maxhossz = str(maxhossz)
+    if maxhossz[0] == '1' or maxhossz[0] == '3' or maxhossz[0] == '5' or maxhossz[0] == '7' or maxhossz[0] == '9':
+        print("A leghosszabb sorozat -> páratlan-páros: {}, hossza: {}".format(eredmeny[maxindex], maxhossz))
+    else:
+        print("A leghosszabb sorozat -> páros-páratlan: {}, hossza: {}".format(eredmeny[maxindex], maxhossz))
