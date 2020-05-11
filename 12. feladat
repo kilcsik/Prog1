@@ -13,3 +13,13 @@ while len(szam) - kezdoindex >= 1:
             break
         eredmeny.append(sorozat)
         kezdoindex += 1
+
+    print(eredmeny)
+
+    maxhossz = 0
+    maxindex = 0
+    for i in range(len(eredmeny)):
+        if len(eredmeny[i]) > maxhossz:
+            maxhossz = len(eredmeny[i])
+            maxindex = i
+    print("A leghosszabb sorozat: {}, hossza: {}".format(eredmeny[maxindex], maxhossz))
