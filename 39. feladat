@@ -1,55 +1,37 @@
-szam = input("Adj meg egy számot! ")
-osszeg = 0
-a = str()
-lefutas = 0
-
-while len(szam) > 1:
-    for i in szam:
-        osszeg += int(i)
-        a += str(i) + " + "
-    a = a[0:-2] + "= " + str(osszeg)
-    lefutas += 1
-    print("Összeg{}: {}".format(lefutas, a))
-    break
-osszeg2 = 0
-b = ""
-while osszeg > 10:
-    for i in str(osszeg):
-        osszeg2 += int(i)
-        b += str(i) + ' + '
-    b = b[0:-2] + "= " + str(osszeg2)
-    lefutas += 1
-    print("Összeg{}: {}".format(lefutas, b))
-    break
-
-osszeg3 = 0
-c = ""
-while osszeg2 > 10:
-    for i in str(osszeg2):
-        osszeg3 += int(i)
-        c += str(i) + ' + '
-    c = c[0:-2] + "= " + str(osszeg3)
-    lefutas += 1
-    print("Összeg{}: {}".format(lefutas, c))
-    break
-
-
-def ParatlanPrim(n):
-    if n < 2 and n % 2 == 0:
+def Prim(n):
+    if n < 2:
         return False
     for i in range(2, n):
         if n % i == 0:
             return False
+    return True
+
+
+def Paratlan(n):
+    if n % 2 == 0:
+        return False
     else:
         return True
 
-ParatlanPrim(int(i))
 
-p = str()
-Primosszeg = 0
-for i in range(len(a)):
-    if ParatlanPrim(a):
-        Primosszeg += int(i)
-        p += str(i) + ' + '
-    p = p[0:-2] + "= " + str(Primosszeg)
-    print("PrimOsszeg:", p)
+osszegek = []
+paratlan_primek = []
+paratlan_primosszeg = 0
+
+szam = input("Adj meg egy számot!: ")
+
+while len(szam) > 1:
+    osszeg = 0
+    for i in range(len(szam)):
+        if Paratlan(int(szam[i])) == True and Prim(int(szam[i])) == True:
+            paratlan_primek.append(int(szam[i]))
+        osszeg += int(szam[i])
+    osszegek.append(osszeg)
+    szam = str(osszeg)
+
+for i in range(len(paratlan_primek)):
+    paratlan_primosszeg += int(paratlan_primek[i])
+
+
+print("Összegek: ", osszegek)
+print("Páratlan prímek összege:", paratlan_primosszeg)
