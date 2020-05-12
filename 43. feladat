@@ -16,14 +16,20 @@ def romantoint(romai):
 
 
 osszeg = 0
+romaiak = []
+arabok = []
 while True:
-    if osszeg > 1000:
+    if osszeg >= 1000:
         break
     else:
         try:
             romai = input("Adj meg egy római számot: ")
             osszeg += romantoint(romai)
-            print(romai, "->", romantoint(romai))
-            print("összeg:", osszeg)
+            romaiak.append(romai)
+            arabok.append(romantoint(romai))
         except KeyError:
             print("Invalid input")
+for i in range(len(romaiak)):
+    for j in range(len(arabok)):
+        if i == j:
+            print(romaiak[i], "->", arabok[j])
