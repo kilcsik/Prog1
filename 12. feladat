@@ -1,3 +1,8 @@
+"""
+Írjon egy Függvényt, ami megtalálja a leghosszabb páros/páratlan vagy páratlan/páros alternáló sorozatot egy számban és visszatér
+ezzel a „részszámmal” és ennek hosszával. Abban az esetben, ha több ilyen is van, akkor az első ilyennel térjen vissza.
+"""
+
 szam = input("A sorozat: ")
 lehsor = []
 
