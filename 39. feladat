@@ -1,3 +1,10 @@
+"""
+Készítsen programot, ami összeadja egy szám számjegyeinek az összegét, majd ezt addig ismétli, ameddig nem egy számjegyű lesz az összeg.
+A program számolja ki az összes páratlan prím számjegy összegét, amit felhasznált a futtatás során.
+Bemenet: 7548
+Kimenet: Osszeg1 = 7 + 5 + 4 + 8 = 24 Osszeg2 = 2 + 4 = 6 PrimOsszeg = 7 + 5 = 12
+"""
+
 def Prim(n):
     if n < 2:
         return False
@@ -14,9 +21,20 @@ def Paratlan(n):
         return True
 
 
+def lista_sztringge(l):
+    szoveg = ""
+    for s in l:
+        szoveg += str(s)
+    return szoveg
+
+
 osszegek = []
+osszeg = 9
 paratlan_primek = []
 paratlan_primosszeg = 0
+szamkiiras = []
+primkiiras = []
+lefutas = 1
 
 szam = input("Adj meg egy számot!: ")
 
@@ -25,13 +43,33 @@ while len(szam) > 1:
     for i in range(len(szam)):
         if Paratlan(int(szam[i])) == True and Prim(int(szam[i])) == True:
             paratlan_primek.append(int(szam[i]))
+
+        szamkiiras += szam[i]
+        if i == (len(szam) - 1):
+            szamkiiras += " = "
+        else:
+            szamkiiras += " + "
+
         osszeg += int(szam[i])
+
+    osszegek.append("Osszeg{} = ".format(lefutas))
+    osszegek += szamkiiras
     osszegek.append(osszeg)
+    osszegek.append(" ")
+
+    lefutas += 1
+    szamkiiras = []
     szam = str(osszeg)
 
 for i in range(len(paratlan_primek)):
     paratlan_primosszeg += int(paratlan_primek[i])
+    if i == (len(paratlan_primek) - 1):
+        primkiiras.append(paratlan_primek[i])
+        primkiiras.append(" = ")
+    else:
+        primkiiras.append(paratlan_primek[i])
+        primkiiras.append(" + ")
+primkiiras.append(paratlan_primosszeg)
 
-
-print("Összegek: ", osszegek)
-print("Páratlan prímek összege:", paratlan_primosszeg)
+print(lista_sztringge(osszegek))
+print("PrimOsszeg =", lista_sztringge(primkiiras))
