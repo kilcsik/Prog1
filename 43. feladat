@@ -1,7 +1,7 @@
 szotar = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
 
 
-def romantoint(romai):
+def RomanToInt(romai):
     elozo = 0
     jelenlegi = 0
     vegso = 0
@@ -24,9 +24,9 @@ while True:
     else:
         try:
             romai = input("Adj meg egy római számot: ")
-            osszeg += romantoint(romai)
+            osszeg += RomanToInt(romai)
             romaiak.append(romai)
-            arabok.append(romantoint(romai))
+            arabok.append(RomanToInt(romai))
         except KeyError:
             print("Invalid input")
 for i in range(len(romaiak)):
