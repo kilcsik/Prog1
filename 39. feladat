@@ -1,8 +1,6 @@
 """
 Készítsen programot, ami összeadja egy szám számjegyeinek az összegét, majd ezt addig ismétli, ameddig nem egy számjegyű lesz az összeg.
 A program számolja ki az összes páratlan prím számjegy összegét, amit felhasznált a futtatás során.
-Bemenet: 7548
-Kimenet: Osszeg1 = 7 + 5 + 4 + 8 = 24 Osszeg2 = 2 + 4 = 6 PrimOsszeg = 7 + 5 = 12
 """
 
 def Prim(n):
